@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# updated instructos that should be moved into the starter kit 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- make sure inside the right folder (./frontend)
+- install the packages from the `package.json` list with `npm install` 
+- check which firebase account: `firebase login` / move to proper account
+- initiate a new firebase project using `firebase initi` 
+- select these following options (typical): 
+    - firestore 
+    - functions
+    - hosting 
+    - storage
+- then give it a name 
+- then go into FIREBASE and go to hosting, set thatup - this will then provide a CONFIG file, you can then copy those parameters into a .env file with this structure: 
+```
+  REACT_APP_FIREBASE_API_KEY= 
+  REACT_APP_FIREBASE_AUTH_DOMAIN= 
+  REACT_APP_FIREBASE_PROJECT_ID= 
+  REACT_APP_FIREBASE_STORAGE_BUCKET= 
+  REACT_APP_FIREBASE_MESSAGING_SENDER_ID= 
+  REACT_APP_FIREBASE_APP_ID= 
+  REACT_APP_FIREBASE_MEASUREMENT_ID= 
+```
+- then ENABLE ANALYTICS to get the `measurementId` permeter for the config file
+- then go into firestore - and create a `Firestore Database`, not a real time (?) 
+    - start in production mode 
+    - can use this for rules:
+```
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
+```
+- will then need to go into firestore, and make PRODUCITON mode is on so data is not deleted
+- then go into `AUTHENTICATION` section and turn on EMAIL + GMAIL 
+- then give it a quick spin - first make sure local works on: 
+    - `npm start` 
+- if so, then build it quick: 
+    - `npm run build` 
+- then deploy to test or real environment: 
+    - test: `firebase hosting:channel:deploy build_v1` 
+    - prod: `firebase deploy` 
