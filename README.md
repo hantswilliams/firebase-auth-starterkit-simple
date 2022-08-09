@@ -42,8 +42,4 @@ service cloud.firestore {
     
     
 - building for vercel: 
-    - if so, then build it quick: 
-        - `npm run build` 
-    - then deploy to test or real environment: 
-        - test: `firebase hosting:channel:deploy build_v1` 
-        - prod: `firebase deploy` 
+    - `insert here`
