@@ -42,4 +42,5 @@ service cloud.firestore {
     
     
 - building for vercel: 
-    - `insert here`
+    - login to vercel, link up github account - select `create react app` as the default react type for framework 
+    - everything else should work
