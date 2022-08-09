@@ -1,5 +1,7 @@
 # updated instructos that should be moved into the starter kit 
 
+- will use `VERCEL` later for deployment, not google hosting 
+
 - make sure inside the right folder (./frontend)
 - install the packages from the `package.json` list with `npm install` 
 - check which firebase account: `firebase login` / move to proper account
@@ -7,7 +9,6 @@
 - select these following options (typical): 
     - firestore 
     - functions
-    - hosting 
     - storage
 - then give it a name 
 - then go into FIREBASE and go to hosting, set thatup - this will then provide a CONFIG file, you can then copy those parameters into a .env file with this structure: 
@@ -38,8 +39,11 @@ service cloud.firestore {
 - then go into `AUTHENTICATION` section and turn on EMAIL + GMAIL 
 - then give it a quick spin - first make sure local works on: 
     - `npm start` 
-- if so, then build it quick: 
-    - `npm run build` 
-- then deploy to test or real environment: 
-    - test: `firebase hosting:channel:deploy build_v1` 
-    - prod: `firebase deploy` 
+    
+    
+- building for vercel: 
+    - if so, then build it quick: 
+        - `npm run build` 
+    - then deploy to test or real environment: 
+        - test: `firebase hosting:channel:deploy build_v1` 
+        - prod: `firebase deploy` 
